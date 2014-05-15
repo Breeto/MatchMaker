@@ -1,0 +1,80 @@
+﻿@using MatchMaker.Web
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.Matchup.FindTeamsModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<div style="margin-top: 10px;">
+    <div id="playerCheckboxes">
+        <div id="playerCheckboxes1" >
+	        @for (var x = 0; x < Model.AvailablePlayers.Length/2; x++)
+    	    {
+	            <div style="margin-bottom: 10px;">
+	                <input type='checkbox' name='UserId' id="@("User" + Model.AvailablePlayers[x].Id)" value="@Model.AvailablePlayers[x].Id" />
+	                <label for="@("User" + Model.AvailablePlayers[x].Id)">@Model.AvailablePlayers[x].Name</label>
+	            </div>
+    	    }
+	    </div>
+	    <div id="playerCheckboxes2">
+	        @for (var x = Model.AvailablePlayers.Length/2; x < Model.AvailablePlayers.Length; x++)
+    	    {
+	            <div style="margin-bottom: 10px;">
+	                <input type='checkbox' name='UserId' id="@("User" + Model.AvailablePlayers[x].Id)" value="@Model.AvailablePlayers[x].Id" />
+	                <label for="@("User" + Model.AvailablePlayers[x].Id)">@Model.AvailablePlayers[x].Name</label>
+	            </div>
+    	    }
+	    </div>
+    </div>
+    
+    <div id="matchupResults">
+        <div id="teamsContainer"></div>
+
+		<div style="margin-top: 20px;">
+			Algorithm: <a href="@Route.SetMatchupProposer">@Model.AlgorithmName</a>
+		</div>
+    </div>
+
+</div>
+
+
+<script>
+	$( document ).ready( function() {
+		$("input[name='UserId']").click(function (){
+			updateTeams();
+		});
+
+		$( "#algorithmTypeName" ).change( function() {
+			updateTeams();
+		} );
+
+		updateTeams();
+	} );
+		
+
+	function updateTeams()
+	{
+		var playerIds = [];
+		var getSelectedAlgorithmTypeName = function()
+		{
+			return $( "#algorithmTypeName" ).val();
+		};
+		
+		$("input[name='UserId']:checked").each(function (){
+			playerIds.push( $( this ).val() );
+		});
+
+		var algorithmTypeName = getSelectedAlgorithmTypeName();
+
+		$.get( '@Route.GetProposedMatchups', { 'PlayerIds': playerIds.join(), 'AlgorithmTypeName' : algorithmTypeName }, function( data ) {
+			$( "#teamsContainer" ).html( data );
+		} );
+	}
+</script>
+
+
+

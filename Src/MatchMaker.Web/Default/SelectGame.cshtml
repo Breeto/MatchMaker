@@ -1,0 +1,19 @@
+﻿@using MatchMaker.Web
+@using Nancy
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.Default.SelectGameViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<ul>
+@foreach( var game in Model.Games )
+{
+	<li><a href="@Route.FindTeamsFor( @game.Key )">@game.Name</a></li>
+}
+</ul>
+

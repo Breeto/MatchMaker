@@ -1,0 +1,137 @@
+﻿@using MatchMaker.Web
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.PlayerRatings.RatePlayersViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<style>
+	.PlayerRatingSlider {
+		width: 300px;
+	}
+		
+	.ui-slider {
+		cursor: pointer;
+	}
+		
+	.ui-slider-handle {
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		text-decoration: none;
+		color: black;
+		font-size: 1em;
+		background-color: green;
+	}
+		
+	button.Dirty
+	{
+		background-color: red;
+		color: white;
+	}
+		
+	th, td
+	{
+		padding: 10px;
+	}
+</style>
+
+
+<table>
+	<tr>
+		<th>Player</th>
+		<th>Rating</th>
+		<th></th>
+		<th>Last Update</th>
+	</tr>
+	
+	@foreach (var player in Model.Players )
+	{
+		var sliderId = "slider" + player.PlayerId;
+		var buttonId = "button" + player.PlayerId;
+		var lastUpdateId = "lastUpdate" + player.PlayerId;
+		<tr>
+			
+			<td class="FontSize-Large">@player.PlayerName</td>
+			
+			<td>
+				<div id="@sliderId" playerId="@player.PlayerId" initialRating="@player.CurrentRating" class="PlayerRatingSlider"></div>
+			</td>
+			
+			<td>
+				<button class="UpdateButton" id="@buttonId">Update</button>
+			</td>
+
+			<td class="Subtle"><span id="@lastUpdateId">@player.TimeSinceLastUpdate</span></td>
+
+		</tr>
+	}
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td><button id="updateAllButton">Update All</button></td>
+		<td></td>
+	</tr>
+
+</table>
+
+
+<script>
+	$(function () {
+		$( "#updateAllButton" ).click( function() {
+			$( ".UpdateButton" ).trigger( "click" );
+		} );
+		
+		$( ".PlayerRatingSlider" ).each(function (){
+			var slider = $(this);
+			var initialRating = $( this ).attr( "initialRating" );
+			var playerId = $( this ).attr( "playerId" );
+			var button = $( "#button" + playerId );
+
+			slider.slider( {
+				range: "min",
+				min: 0,
+				max: 10,
+				step: 1,
+				value: initialRating,
+				slide: function( event, ui )
+				{
+					var sliderHandle = slider.children( ".ui-slider-handle" );
+					button.addClass( "Dirty" );
+					sliderHandle.html( ui.value > 0 ? ui.value : "" );
+				}
+			} );
+
+			slider.children( ".ui-slider-handle" ).html( initialRating > 0 ? initialRating : "" ); // TODO: DRY
+			
+			button.click( function() {
+				var lastUpdatedLabel = $( "#lastUpdate" + playerId );
+				$( this ).attr( "disabled", "disabled" );
+				var url = "@Route.AddPlayerRating?playerId=" + playerId + "&rating=" + slider.slider("value") + "&ratedByPlayerId=" + "@Model.UserId";
+
+				$.ajax( {
+					url: url,
+					success: function()
+					{
+						lastUpdatedLabel.html( "Today" );
+						button.removeAttr( "disabled" );
+						button.removeClass( "Dirty" );
+					},
+					error: function( data )
+					{
+						button.removeAttr( "disabled" );
+						alert( data.responseText );
+					}
+				} );
+			} );
+		} );
+	} );
+
+</script>
+
+

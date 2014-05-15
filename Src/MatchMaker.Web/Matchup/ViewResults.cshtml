@@ -1,0 +1,122 @@
+﻿@using System.Linq
+@using MatchMaker.Data
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.List<MatchMaker.Web.Matchup.MatchupResultViewModel>>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<style>
+	.WinnerBackground {
+		background-color: skyblue;
+	}
+</style>
+	
+
+@{
+foreach (var matchupResult in Model.OrderByDescending(model => model.Timestamp))
+{
+	var team1HeaderBackground = matchupResult.Winner == MatchupWinner.Team1 ? "WinnerBackground" : "";
+	var team2HeaderBackground = matchupResult.Winner == MatchupWinner.Team2 ? "WinnerBackground" : "";
+
+	<table class="resultTable" >
+		<tr>
+			
+		    <td >
+		        <table style="float:left">
+		            <tr>
+		                <td id="imageColumn">
+		                    <div id="mapImage">
+		                        @if ( matchupResult.Map !=null )
+		                        {
+		                            <img src="/StaticContent/Images/@matchupResult.Map.ImagePath" title="@matchupResult.Map.Name" width="100%"/>
+		                        }
+		                    </div>
+		                </td>
+		                <td id="scoreColumn">
+		                    <div id="teamInformationContainer">
+		                        <div class="TeamContainer" id="team1Part">
+		                            <div class="TeamHeader @team1HeaderBackground">
+		                                <div class="TeamName" style="float: left;">Team 1</div>
+		                                <div style="float: right; position: absolute; right: 0px; bottom: 0%;">
+		                                    @if ( null != matchupResult.Team1Score )
+		                                    {
+		                                        <div class="Number">@string.Format( "{0:N0}", matchupResult.Team1Score )</div>
+		                                    }
+		                                    else
+		                                    {
+		                                        if ( matchupResult.Winner == MatchupWinner.Team1 )
+		                                        {
+		                                            <img style="margin: 2px;" src="/StaticContent/Images/TrophyWithStar.png"/>
+		                                        }
+		                                    }
+		                                </div>
+		                                <div style="clear: both;"></div>
+		                            </div>
+		                            @foreach ( var playerName in matchupResult.Team1PlayerNames )
+		                            {
+		                                <div class="PlayerName">@playerName</div>
+		                            }
+		                        </div>
+                
+		                        <div id="outer-vs">
+		                            <div class="Subtle" id="vs">-vs-</div>
+
+		                        </div>
+		            
+		                        <div class="TeamContainer" id="team2Part">
+		                            <div class="TeamHeader @team2HeaderBackground">
+		                                <div id="team2Number" class="Number" >
+		                                    @if ( null != matchupResult.Team2Score )
+		                                    {
+		                                        <div class="Number">@string.Format( "{0:N0}", matchupResult.Team2Score )</div>
+		                                    }
+		                                    else
+		                                    {
+		                                        if ( matchupResult.Winner == MatchupWinner.Team2 )
+		                                        {
+		                                            <img style="margin: 2px;" src="/StaticContent/Images/TrophyWithStar.png"/>
+		                                        }
+		                                    }
+		                                </div>
+		                                <div id="team2Name" class="TeamName">Team 2</div>
+		                                <div style="clear: both;"></div>
+		                            </div>
+		                            @foreach ( var playerName in matchupResult.Team2PlayerNames )
+		                            {
+		                                <div class="PlayerName">@playerName</div>
+		                            }
+		                        </div>
+		                    </div>
+		                </td>
+		            </tr>
+		        </table>
+		        
+		        
+                
+		        <div id="comments">
+		            <div style="font-weight: bold;">@matchupResult.HowRecent</div> 
+		            <div class="Subtle">@matchupResult.Timestamp</div>
+		            @if ( !string.IsNullOrWhiteSpace( matchupResult.Comment ) )
+		            {
+		                <div>
+		                    @matchupResult.Comment
+		                </div>
+		            }
+		        </div>
+                
+
+		    </td>
+
+
+
+           
+						
+		</tr>
+	</table>
+
+}

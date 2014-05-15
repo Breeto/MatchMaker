@@ -1,0 +1,117 @@
+﻿@using System.Web.Helpers
+@using MatchMaker.Common
+@using MatchMaker.Web
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.DataVisualization.ViewDataVisualizationViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+<script src="@Url.Content("~/StaticContent/Scripts-Internal/MulticastEvent.js")" type="text/javascript"></script>
+<script>
+    var people;
+    var multicastEvent = new MulticastEvent();
+    function selectionChanged() {
+        var playerName = $("#playerSelect option:selected").text();
+        if (playerName == "No Player Selected") {
+            return;
+        }
+        var selectedPlayer;
+        for (var x = 0; x < people.length; x++) {
+            if (people[x].Name == playerName) {
+                selectedPlayer = people[x];
+                break;
+            }
+        }
+        multicastEvent.FireEvent(selectedPlayer);
+    }
+    
+    function changeSelectedItem(person) {
+        var selectedIndex = 1;
+        for (var x = 0; x < people.length; x++) {
+            if (person.ID == people[x].ID) {
+                selectedIndex = x+1;
+                break;
+            }
+        }
+        var playerSelect = document.getElementById("playerSelect");
+        playerSelect.selectedIndex = selectedIndex;
+    }
+
+    multicastEvent.AddHandler(changeSelectedItem, this);
+
+    
+</script>
+
+
+
+<div id="groupStatistics" class="statistics" style="float: left;">
+    <h1 class="statisticsHeader">Group Statistics</h1>
+
+    <div style="border-bottom: solid 3px #555;"></div>
+
+    <div id="chart">
+	
+    </div>
+</div>
+
+<div id="individualStatistics" class="statistics" style="float: left;">
+    <h1 class="statisticsHeader">Individual Statistics</h1>
+
+    <div style="border-bottom: solid 3px #555;"></div>
+
+    <div style="margin-top: 10px">
+        <p style="float:left; margin-right: 20px;">Player Stats</p>
+        <select id="playerSelect" onchange="selectionChanged()" style="margin-top: 13px" >
+            <option>No Player Selected</option>
+            @foreach(var player in @Model.LinkedPlayers)
+            {
+                <option value="@player.ID">@player.Name</option>
+            }
+        </select>
+    </div>
+
+    <div style="border-bottom: solid 1px #CCC; margin-top: 20px; margin-bottom: 20px;"></div>
+
+    <div id="streak">
+        <h2 id="winLossTitle"></h2>
+    </div>
+
+    <div style="border-bottom: solid 1px #CCC; margin-top: 20px; margin-bottom: 20px;"></div>
+
+    <div id="mapPercentage">
+        <h2 id="mapTitle"></h2>
+    </div>
+
+</div>
+
+
+
+
+<script src="@Url.Content("~/StaticContent/Scripts-Internal/LinkVisualization.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/StaticContent/Scripts-Internal/StreakVisualization.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/StaticContent/Scripts-Internal/MapWinPercentageVisualization.min.js")" type="text/javascript"></script>
+
+<script>
+    
+    var currentUrl = window.location.toString();
+    var url = currentUrl.replace("viewdatavisualization", "getlinkedplayers");
+    $.getJSON(url, function (players) {
+        people = players;
+        LinkVisualization.CreateChordDiagram(players,multicastEvent);
+        StreakVisualization.CreateStreakDiagram(players, multicastEvent);
+        MapWinPercentageVisualization.CreateMapWinPercentageVisualization(players, multicastEvent);
+        window.onresize = function(e) {
+            LinkVisualization.resize();
+            StreakVisualization.resize();
+            MapWinPercentageVisualization.resize();
+
+        };
+    });
+</script>
+
+
+

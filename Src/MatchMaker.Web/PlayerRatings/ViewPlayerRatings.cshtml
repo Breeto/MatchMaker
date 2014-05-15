@@ -1,0 +1,89 @@
+﻿@using MatchMaker.Common.ExtensionMethods
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.PlayerRatings.ViewPlayerRatingsViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<style>
+	th 
+	{
+		cursor: pointer;
+	}
+</style>
+
+
+<table id="playerRatingsTable">
+	<thead>
+		<tr class="Subtle">
+			<th class="nameColumn">Player</th>
+			<th class="ratingsColumn">Rating</th>
+			<th class="{sorter: 'percent'} winLossColumn">Win/Loss Record</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		@foreach (var player in Model.PlayerAverageRatings)
+		{
+			<tr>
+			
+				<td class="FontSize-Large nameColumn">@player.PlayerName</td>
+
+				<td class="FontSize-Large ratingsColumn" >
+					@if (player.AverageRating.HasValue )
+					{
+					    <div id="playerRating" >@player.AverageRating.Value.ToString("N1")</div>
+					    <div class="SparklineContainer">
+					        <div class="Sparkline" ><!-- @IEnumerableExtensions.Join( player.RatingHistory, "," ) --></div>
+					    </div>
+						
+					}
+					else
+					{
+						<span class="Subtle">(no recent ratings)</span>
+					}
+				</td>			
+				
+			    <td class="FontSize-Large winLossColumn">
+			        <div id="winPercentage">@string.Format( "{0:0.0}%", player.WinLossRecord.WinPercentage )</div>
+			        <div id="winCount" class="Subtle">@string.Format( "({0}-{1}-{2})", player.WinLossRecord.Wins, player.WinLossRecord.Losses, player.WinLossRecord.Ties )</div>
+			    </td>
+
+			</tr>
+		}
+	</tbody>
+</table>
+
+<script src="@Url.Content("~/StaticContent/Scripts-Internal/Sparkline.min.js")" type="text/javascript"></script>
+<script>
+    $(function () {
+        var sparklines = document.getElementsByClassName("Sparkline");
+        var svgSparklines = [];
+        for (var x = 0; x < sparklines.length; x++) {
+            var parent = sparklines[x];
+            var spark = new Sparkline(parent.innerHTML, parent);
+            svgSparklines.push(spark);
+        }
+
+        window.onresize = function(e) {
+            svgSparklines.forEach(function(sparkline) { sparkline.resize(); });
+        };
+
+
+        /*.sparkline('html', {
+            fillColor: false,
+            chartRangeMin: 1,
+            chartRangeMax: 10,
+            minSpotColor: false,
+            maxSpotColor: false
+        } );
+		*/
+        $( "#playerRatingsTable" ).tablesorter( {
+            sortList: [[1, 1]] 
+        });
+    } );
+</script>

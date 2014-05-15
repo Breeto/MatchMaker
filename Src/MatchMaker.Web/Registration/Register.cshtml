@@ -1,0 +1,34 @@
+﻿@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<p class="Heading">New Account Registration</p>
+
+
+<form method="POST">
+	<table>
+		<tr>
+			<td>User Name:</td>
+			<td><input name="userName" type="text" size="20" value="@Model.UserName" autofocus="autofocus"/></td>
+		</tr>
+@*		<tr>*@
+@*			<td>Email Address:</td>*@
+@*			<td><input name="emailAddress" type="text" size="20" value="@Model.EmailAddress"/></td>*@
+@*		</tr>*@
+		<tr>
+			<td>Password:</td>
+			<td><input name="password1" type="password" size="20"/></td>
+		</tr>
+		<tr>
+			<td>Re-enter Password:</td>
+			<td><input name="password2" type="password" size="20"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Register"/></td>
+		</tr>
+	</table>
+</form>
+
+

@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7941B9E0-4D6D-4209-94DA-CBAEEAC1BE2E}"
+	ProjectSection(SolutionItems) = preProject
+		..\Notes.txt = ..\Notes.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaker", "MatchMaker\MatchMaker.csproj", "{162B0012-AA21-44E7-ABC0-37973F291C6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaker.Web", "MatchMaker.Web\MatchMaker.Web.csproj", "{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaker.Testing", "MatchMaker.Testing\MatchMaker.Testing.csproj", "{01FAC218-60CB-4D00-A3F5-23665FB2606B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaker.MongoDB", "MatchMaker.MongoDB\MatchMaker.MongoDB.csproj", "{4DC54C75-89A4-4569-A7F9-3F132DE5B120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L4D2MapImporter", "L4D2MapImporter\L4D2MapImporter.csproj", "{002F834F-0B2D-42E8-A6FF-FBEF1B793895}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{162B0012-AA21-44E7-ABC0-37973F291C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162B0012-AA21-44E7-ABC0-37973F291C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162B0012-AA21-44E7-ABC0-37973F291C6A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{162B0012-AA21-44E7-ABC0-37973F291C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162B0012-AA21-44E7-ABC0-37973F291C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{162B0012-AA21-44E7-ABC0-37973F291C6A}.Release|x86.ActiveCfg = Release|Any CPU
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Debug|x86.ActiveCfg = Debug|x86
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Debug|x86.Build.0 = Debug|x86
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Release|x86.ActiveCfg = Release|x86
+		{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}.Release|x86.Build.0 = Release|x86
+		{01FAC218-60CB-4D00-A3F5-23665FB2606B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01FAC218-60CB-4D00-A3F5-23665FB2606B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01FAC218-60CB-4D00-A3F5-23665FB2606B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{01FAC218-60CB-4D00-A3F5-23665FB2606B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01FAC218-60CB-4D00-A3F5-23665FB2606B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01FAC218-60CB-4D00-A3F5-23665FB2606B}.Release|x86.ActiveCfg = Release|Any CPU
+		{4DC54C75-89A4-4569-A7F9-3F132DE5B120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC54C75-89A4-4569-A7F9-3F132DE5B120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC54C75-89A4-4569-A7F9-3F132DE5B120}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4DC54C75-89A4-4569-A7F9-3F132DE5B120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC54C75-89A4-4569-A7F9-3F132DE5B120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC54C75-89A4-4569-A7F9-3F132DE5B120}.Release|x86.ActiveCfg = Release|Any CPU
+		{002F834F-0B2D-42E8-A6FF-FBEF1B793895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002F834F-0B2D-42E8-A6FF-FBEF1B793895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002F834F-0B2D-42E8-A6FF-FBEF1B793895}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{002F834F-0B2D-42E8-A6FF-FBEF1B793895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002F834F-0B2D-42E8-A6FF-FBEF1B793895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002F834F-0B2D-42E8-A6FF-FBEF1B793895}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

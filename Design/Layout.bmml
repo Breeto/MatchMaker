@@ -1,0 +1,119 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1275" measuredH="640" mockupW="1078" mockupH="563">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="197" y="84" w="-1" h="-1" measuredW="222" measuredH="50" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6710886</color>
+        <text>MatchMaker</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="524" y="84" w="473" h="-1" measuredW="420" measuredH="50" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <bold>true</bold>
+        <text>Call%20of%20Duty%3A%20Black%20Ops</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="197" y="124" w="800" h="-1" measuredW="100" measuredH="10" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::HRule" x="197" y="158" w="800" h="-1" measuredW="100" measuredH="10" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::LinkBar" x="197" y="134" w="-1" h="-1" measuredW="378" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Find%20Teams%2C%20Game%20History%2C%20Rate%20Players%2C%20Player%20Ratings</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="826" y="134" w="171" h="21" measuredW="122" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <text>Logged%20in%20as%20%5BBreeto%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Title" x="197" y="244" w="-1" h="-1" measuredW="222" measuredH="50" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6710886</color>
+        <text>MatchMaker</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Title" x="524" y="244" w="473" h="-1" measuredW="420" measuredH="50" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <bold>true</bold>
+        <text>Call%20of%20Duty%3A%20Black%20Ops</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::HRule" x="197" y="284" w="800" h="-1" measuredW="100" measuredH="10" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::HRule" x="197" y="318" w="800" h="-1" measuredW="100" measuredH="10" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::LinkBar" x="197" y="294" w="-1" h="-1" measuredW="175" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Find%20Teams%2C%20Game%20History</text>
+      </controlProperties>
+    </control>
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::Title" x="197" y="444" w="-1" h="-1" measuredW="222" measuredH="50" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6710886</color>
+        <text>MatchMaker</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::HRule" x="197" y="484" w="800" h="-1" measuredW="100" measuredH="10" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::HRule" x="197" y="518" w="800" h="-1" measuredW="100" measuredH="10" zOrder="13" locked="false" isInGroup="-1"/>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::LinkBar" x="197" y="494" w="-1" h="-1" measuredW="236" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Login%20or%20Register%20for%20more%20Options</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::StickyNote" x="1051" y="237" w="224" h="72" measuredW="109" measuredH="123" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Not%20logged%20in</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::StickyNote" x="1051" y="77" w="224" h="72" measuredW="109" measuredH="123" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Logged%20in</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::StickyNote" x="1051" y="437" w="224" h="72" measuredW="109" measuredH="123" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Not%20logged%20in%2C%20game%20not%20set</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Label" x="820" y="294" w="173" h="21" measuredW="104" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <text>%5BLogin%20or%20Register%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::SubTitle" x="217" y="543" w="-1" h="-1" measuredW="180" measuredH="33" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20a%20game...</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="242" y="576" w="-1" h="-1" measuredW="174" measuredH="24" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>-%20%5BCall%20of%20Duty%3A%20Black%20Ops%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="242" y="596" w="-1" h="-1" measuredW="119" measuredH="24" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>-%20%5BCounter-Strike%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="242" y="616" w="-1" h="-1" measuredW="119" measuredH="24" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>-%20%5BLeft%204%20Dead%202%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Canvas" x="202" y="332" w="795" h="48" measuredW="100" measuredH="70" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>10066329</borderColor>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>15658734</color>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Paragraph" x="197" y="338" w="200" h="42" measuredW="200" measuredH="80" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>-%20User%20message%20one%0A-%20User%20message%20two</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

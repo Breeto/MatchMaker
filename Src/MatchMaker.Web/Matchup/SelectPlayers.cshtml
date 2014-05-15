@@ -1,0 +1,32 @@
+﻿@using MatchMaker.Web.Common
+@using System.Linq
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.Matchup.SelectPlayersViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<p class="Heading">Who actively plays this game?</p>
+
+
+<form method="POST">
+
+	@foreach (var selectable in Model.SelectableUsers.OrderBy( user => user.Item.Name ) )
+	{
+		var elementId = string.Format( "user{0}", selectable.Item.Id );
+	 
+	 	<div class="CheckBoxWrapper">
+			<input type='checkbox' name='userIds' id="@elementId" value="@selectable.Item.Id" @HtmlHelper.CheckedAttributeFor(selectable.IsSelected) />
+			<label for="@elementId">@selectable.Item.Name</label>
+		</div>
+	}
+
+	<input type="submit" value="Done"/>
+
+</form>
+
+

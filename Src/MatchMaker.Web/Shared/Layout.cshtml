@@ -1,0 +1,151 @@
+﻿@using MatchMaker.Web
+@using Nancy
+
+
+@{
+	var currentUser = this.ViewBag[ViewBagKeys.CurrentUser].Value;
+	var currentGame = this.ViewBag[ViewBagKeys.CurrentGame].Value;
+}
+
+
+<!DOCTYPE html>
+
+<!-- TODO: Fix size inconsistencies (page width) across pages -->
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		
+		@{
+			var title = null != currentGame ? string.Format( "{0} {1}", currentGame.Name, "MatchMaker" ) : "MatchMaker";
+		}
+
+		<title>@title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="@Url.Content("~/StaticContent/Styles/MatchMaker.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/StaticContent/Styles/Responsive.css")" rel="stylesheet" type="text/css" />
+		<link href="@Url.Content("~/StaticContent/Styles/ui-lightness/jquery-ui-1.8.18.custom.css")" rel="stylesheet" type="text/css" />
+		<link href="@Url.Content( "~/StaticContent/Styles/jquery-ui-timepicker-addon.css" )" rel="stylesheet" />
+
+		<script src="@Url.Content("~/StaticContent/Scripts-External/jquery-1.7.1.min.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/StaticContent/Scripts-External/jquery-ui-1.8.18.custom.min.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/StaticContent/Scripts-External/jquery.tablesorter.min.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/StaticContent/Scripts-External/jquery.sparkline.min.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/StaticContent/Scripts-External/jquery-ui-timepicker-addon.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/StaticContent/Scripts-External/d3.v2.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/StaticContent/Scripts-Internal/MediaQueries.min.js")" type="text/javascript"></script>
+	</head>
+	
+
+	<body style="text-align: center; margin-top: 20px; margin: 0 auto;">
+		
+		<div style="display: inline-block; text-align: left;width: 100%;">
+			
+			<!-- Header -->
+			<div>
+				
+				<div style="float: left; margin-left: 5%">
+					@{
+						if ( null != currentGame )
+						{
+							<a href="@Route.SelectGame" class="GameTitle" style="text-decoration: none;">@currentGame.Name</a>
+							<text>&nbsp;</text>
+						}
+					}
+					<a href="@Route.Home" style="text-decoration: none;" class="AppTitle">MatchMaker</a>
+				</div>
+
+				<div style="float: right; margin-left: 0px;">
+				</div>
+
+				<div style="clear: both;"></div>
+			</div>
+			
+			
+			<!-- Navigation -->
+			<div class="NavBar">
+				
+			    <div style="float: left; margin-left: 5%">
+			        <div id="navBar1">
+			             @{
+			                if (null != currentGame)
+			                {
+					            <a href="@Route.FindTeamsFor(currentGame.Key)">Find Teams</a>
+			                    <a href="@Route.ViewResultsFor(currentGame.Key)">Game History</a>
+			                    <a href="@Route.ViewPlayerRatingsFor(currentGame.Key)">Player Ratings</a>
+
+			                }
+			                else
+			                {
+                                if (null != currentUser)
+                                {
+                                     <a href="@Route.UserProfile">Account Settings</a>
+                                    
+                                }
+                                else
+                                {
+                                    <a href="@Route.Login">Login</a>
+			                        <a href="@Route.Register">Register</a>
+                                }
+			                }
+			            }
+			            
+
+			        </div>
+			       
+			        <div id="navBar2">
+			            @{
+                            
+			                if (null != currentGame)
+			                {
+                                <a href="@Route.ViewDataVisualizationFor(currentGame.Key)">View Data</a>
+                                if (null != currentUser)
+                                {
+                                    <a href="@Route.RatePlayersFor(currentGame.Key)">Rate Players</a>
+			                        <a href="@Route.UserProfile">Account Settings</a>
+                                }
+                                else
+                                {
+                                    <a href="@Route.Login">Login</a>
+			                        <a href="@Route.Register">Register</a>
+                                }
+			                }
+			            }
+			        </div>
+			    </div>
+
+				<div style="float: right;">
+				</div>
+
+				<div style="clear: both;"></div>
+			</div>
+			
+			
+			<!-- User Messages -->
+			@{
+				var userMessages = this.PopUserMessages();
+		 
+				if ( null != userMessages && userMessages.Length > 0 )
+				{
+					<ul style="border: solid 1px #aaa; background-color: #eee; border-radius: 5px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">
+						@foreach ( var message in userMessages )
+						{
+							<li>@message</li>
+						}
+					</ul>
+				}
+			}
+			
+			
+			<!-- Page Content -->
+			<div style="margin-left: 5%; margin-top: 20px">
+				@RenderBody()
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
+
+

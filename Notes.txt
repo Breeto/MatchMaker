@@ -1,0 +1,111 @@
+/
+/User/Login
+/User/Logout
+/User/Register
+/{GameKey}/SelectPlayers
+/{GameKey}/GetProposedMatchups
+/{GameKey}/PresentMatchupForSaving
+/{GameKey}/SaveMatchupResult
+/{GameKey}/ViewResults
+/{GameKey}/RatePlayers
+/{GameKey}/AddPlayerRating
+/{GameKey}/ViewPlayerRatings
+
+
+Page                    Module           Route
+-----------------------------------------------------------------------------
+
+Home                    Default          /
+  - Set Game
+
+Registration            Registration     /register     
+
+Login                   Authentication   /login
+                                         /logout
+
+RatePlayers             PlayerRatings    /blops/rateplayers
+ViewPlayerRatings                        /blops/playerratings
+
+Find Teams              Matchup          /blops/
+Save Matchup Result                      /blops/savematchupresult
+View Matchup Results                     /blops/matchuphistory
+
+User Prefs              User             /user/selectgames
+  - Select Games                         
+	- Logout
+
+
+STYLES
+------
+
+Fonts
+
+- Normal
+- Accent
+- Subtle
+
+
+Font Sizes
+
+- Small
+- Medium
+- Large
+- Extra Large
+
+
+Colors
+
+- Neutral
+- Subtle
+- Accent
+
+
+Styles
+
+- Default: Fonts.Normal, FontSizes.Medium, Colors.Neutral
+- Header: Fonts.Accent, FontSizes.ExtraLarge, Colors.Accent
+- SubHeader: Fonts...
+
+
+
+
+   Session 
+
+      ^ 
+      |
+      |
+      |
+
+   Module -----------+  
+                     |
+      |              |
+      |              |
+      |              |
+      v              v  
+
+  ViewModel        View
+
+
+
+
+* Session should store common things like CurrentGame, CurrentUser
+* View (layout) should be able to access Session to display CurrentGame, CurrentUser, etc
+* All modules are created once at startup, then each module per request
+
+
+
+
+Summary of Best Practices for Document Database Schema Design (from MongoDB)
+
+    "First class" objects, that are at top level, typically have their own collection.
+    Line item detail objects typically are embedded.
+    Objects which follow an object modelling "contains" relationship should generally be embedded.
+    Many to many relationships are generally done by linking.
+    Collections with only a few objects may safely exist as separate collections, as the whole collection is quickly cached in application server memory.
+    Embedded objects are a bit harder to link to than "top level" objects in collections.
+    It is more difficult to get a system-level view for embedded objects. When needed an operation of this sort is performed by using MongoDB's map/reduce facility.
+    If the amount of data to embed is huge (many megabytes), you may reach the limit on size of a single object. See also GridFS.
+    If performance is an issue, embed.
+
+		
+		

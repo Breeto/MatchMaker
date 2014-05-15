@@ -1,0 +1,102 @@
+﻿@using MatchMaker.Common.ExtensionMethods
+@using MatchMaker.Data
+@using MatchMaker.Web
+@using System.Linq
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.Matchup.SaveMatchupResultViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<form action="@Route.SaveMatchupResult" method="POST">
+	
+	<input type="hidden" name="gameId" value="@Model.Matchup.Game.Id"/>
+	
+	<table>
+		
+		<tr>
+			<td>Date:</td>
+			<td colspan="3" style="text-align: left;">
+				<input type="text" id="dateInput" name="timestamp"/>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>Winner:</td>
+			<td style="text-align: center;">
+				<label for="winner.team1" class="Subtle">Team 1</label>
+				<label for="winner.team1">
+					<input type="hidden" name="team1UserIds" value="@IEnumerableExtensions.Join( Model.Matchup.Team1.Members.Select(user => user.Id), ",")"/>
+					@foreach(var player in @Model.Matchup.Team1.Members)
+					{
+						<div class="FontSize-Large">@player.Name</div>
+					}
+				</label>
+				<input id="winner.team1" type="radio" name="winner" value="@MatchupWinner.Team1"/>
+			</td>
+
+			<td style="text-align: center;">
+				<label for="winner.tie"class="Subtle" style="padding: 20px;">Tie</label>
+				<br/>
+				<input id="winner.tie" type="radio" name="winner" value="@MatchupWinner.Tie" checked/>
+			</td>
+
+			<td style="text-align: center;">
+				<label for="winner.team2" class="Subtle">Team 2</label>
+				<label for="winner.team2">
+					<input type="hidden" name="team2UserIds" value="@IEnumerableExtensions.Join( Model.Matchup.Team2.Members.Select(user => user.Id), ",")"/>
+					@foreach(var player in @Model.Matchup.Team2.Members)
+					{	
+						<div class="FontSize-Large">@player.Name</div>
+					}
+				</label>
+				<input id="winner.team2" type="radio" name="winner" value="@MatchupWinner.Team2"/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Score <span class="Subtle">(optional)</span>:</td>
+			<td style="text-align: center;"><input type="text" size="4" name="team1Score"/></td>
+			<td></td>
+			<td style="text-align: center;"><input type="text" size="4" name="team2Score"/></td>
+		</tr>
+		
+		<tr>
+			<td>Comment <span class="Subtle">(optional)</span>:</td>
+			<td colspan="3" style="text-align: left;">
+				<textarea cols="25" rows="3" name="comment"></textarea>
+			</td>
+		</tr>
+        
+        <tr>
+			<td>Map <span class="Subtle">(optional)</span>:</td>
+			<td colspan="3" style="text-align: left;">
+				<select name="mapId">
+					@foreach(var map in @Model.Maps)
+					{
+                        <option value="@map.Id">@map.Name</option>
+                    }
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td colspan="3" style="text-align: left;">
+				<button>Save Matchup Result</button>
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+
+<script>
+	$('#dateInput').datetimepicker({ampm: true,});
+	$('#dateInput').datetimepicker('setDate', new Date());
+</script>

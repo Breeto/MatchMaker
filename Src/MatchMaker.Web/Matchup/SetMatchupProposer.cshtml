@@ -1,0 +1,36 @@
+﻿@using MatchMaker.Web
+@using MatchMaker.Web.Common
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.Matchup.SetMatchupProposerViewModel>
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<p class="Heading">Select the active match-making algorithm</p>
+
+
+<form method="POST">
+	
+	@foreach(var algorithm in Model.Algorithms)
+	{
+		var elementId = algorithm.TypeName;
+	 
+		<p>
+			<input 
+				id="@elementId" 
+				type="radio" 
+				name="selectedAlgorithmTypeName" 
+				value="@algorithm.TypeName"
+				@HtmlHelper.CheckedAttributeFor(algorithm.IsSelected)/>
+			<label for="@elementId">@algorithm.Name</label>
+		</p>
+	}
+	
+	<input type="submit" value="Save"/>
+
+</form>
+

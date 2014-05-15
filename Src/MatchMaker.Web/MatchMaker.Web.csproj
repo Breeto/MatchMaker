@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C61DFF8E-EE20-4BAE-B1A3-E813577A6F98}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MatchMaker.Web</RootNamespace>
+    <AssemblyName>MatchMaker.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>Default Web Site/MatchMaker</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\MatchMaker.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\MatchMaker.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nancy, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.0.12.1\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Authentication.Forms, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Authentication.Forms.0.12.1\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Aspnet, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.12.1\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RingtailDesign.Common">
+      <HintPath>..\packages\RingtailDesign.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StaticContent\Images\chiv\Arena.jpg" />
+    <Content Include="StaticContent\Images\chiv\Battlegrounds.jpg" />
+    <Content Include="StaticContent\Images\chiv\chivalryDefault.jpg" />
+    <Content Include="StaticContent\Images\chiv\DarkForest.jpg" />
+    <Content Include="StaticContent\Images\chiv\Hillside.jpg" />
+    <Content Include="StaticContent\Images\chiv\Moor.jpg" />
+    <Content Include="StaticContent\Images\chiv\Ruins.jpg" />
+    <Content Include="StaticContent\Images\chiv\Stoneshill.jpg" />
+    <Content Include="StaticContent\Images\codblops2\aftermath.png" />
+    <Content Include="StaticContent\Images\codblops2\blops2.jpg" />
+    <Content Include="StaticContent\Images\codblops2\cargo.png" />
+    <Content Include="StaticContent\Images\codblops2\carrier.png" />
+    <Content Include="StaticContent\Images\codblops2\cove.jpg" />
+    <Content Include="StaticContent\Images\codblops2\detour.png" />
+    <Content Include="StaticContent\Images\codblops2\downhill.jpg" />
+    <Content Include="StaticContent\Images\codblops2\drone.png" />
+    <Content Include="StaticContent\Images\codblops2\encore.jpg" />
+    <Content Include="StaticContent\Images\codblops2\express.png" />
+    <Content Include="StaticContent\Images\codblops2\grind.jpg" />
+    <Content Include="StaticContent\Images\codblops2\hijacked.png" />
+    <Content Include="StaticContent\Images\codblops2\hydro.jpg" />
+    <Content Include="StaticContent\Images\codblops2\magma.jpg" />
+    <Content Include="StaticContent\Images\codblops2\meltdown.png" />
+    <Content Include="StaticContent\Images\codblops2\mirage.jpg" />
+    <Content Include="StaticContent\Images\codblops2\nuketown.jpg" />
+    <Content Include="StaticContent\Images\codblops2\overflow.png" />
+    <Content Include="StaticContent\Images\codblops2\plaza.png" />
+    <Content Include="StaticContent\Images\codblops2\raid.png" />
+    <Content Include="StaticContent\Images\codblops2\rush.jpg" />
+    <Content Include="StaticContent\Images\codblops2\slums.png" />
+    <Content Include="StaticContent\Images\codblops2\standoff.png" />
+    <Content Include="StaticContent\Images\codblops2\studio.jpg" />
+    <Content Include="StaticContent\Images\codblops2\turbine.png" />
+    <Content Include="StaticContent\Images\codblops2\uplink.jpg" />
+    <Content Include="StaticContent\Images\codblops2\vertigo.jpg" />
+    <Content Include="StaticContent\Images\codblops2\yemen.png" />
+    <Content Include="StaticContent\Images\codblops\array.jpg" />
+    <Content Include="StaticContent\Images\codblops\cracked.jpg" />
+    <Content Include="StaticContent\Images\codblops\crisis.jpg" />
+    <Content Include="StaticContent\Images\codblops\defaultmap.jpg" />
+    <Content Include="StaticContent\Images\codblops\firingrange.jpg" />
+    <Content Include="StaticContent\Images\codblops\grid.jpg" />
+    <Content Include="StaticContent\Images\codblops\hanoi.jpg" />
+    <Content Include="StaticContent\Images\codblops\havana.jpg" />
+    <Content Include="StaticContent\Images\codblops\jungle.jpg" />
+    <Content Include="StaticContent\Images\codblops\launch.jpg" />
+    <Content Include="StaticContent\Images\codblops\nuketown.jpg" />
+    <Content Include="StaticContent\Images\codblops\radiation.jpg" />
+    <Content Include="StaticContent\Images\codblops\summit.jpg" />
+    <Content Include="StaticContent\Images\codblops\villa.jpg" />
+    <Content Include="StaticContent\Images\codblops\wmd.jpg" />
+    <Content Include="Matchup\FindTeams.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Registration\Register.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="StaticContent\Images\Clipboard.png" />
+    <Content Include="StaticContent\Images\ClipboardWithFile.png" />
+    <Content Include="StaticContent\Images\left4dead2\blood harvest.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\cold stream.png" />
+    <Content Include="StaticContent\Images\left4dead2\crash course.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\dark carnival.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\dead air.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\dead center.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\death toll.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\generic poster.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\hard rain.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\no mercy.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\swamp fever.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\the parish.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\the passing.jpg" />
+    <Content Include="StaticContent\Images\left4dead2\the sacrifice.jpg" />
+    <Content Include="StaticContent\Images\Ribbon.png" />
+    <Content Include="StaticContent\Images\Save.png" />
+    <Content Include="StaticContent\Images\Trophy.png" />
+    <Content Include="StaticContent\Images\TrophyWithStar.png" />
+    <Content Include="StaticContent\Scripts-External\d3.v2.d.ts" />
+    <Content Include="StaticContent\Scripts-External\d3.v2.js" />
+    <Content Include="StaticContent\Scripts-External\jquery-1.7.1.min.js" />
+    <Content Include="StaticContent\Scripts-External\jquery-ui-1.8.18.custom.min.js" />
+    <Content Include="StaticContent\Scripts-External\jquery-ui-timepicker-addon.js" />
+    <Content Include="StaticContent\Scripts-External\jquery.d.ts" />
+    <Content Include="StaticContent\Scripts-External\jquery.sparkline.min.js" />
+    <Content Include="StaticContent\Scripts-External\jquery.tablesorter.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\LinkedPlayer.js" />
+    <Content Include="StaticContent\Scripts-Internal\LinkedPlayer.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\LinkVisualization.js" />
+    <Content Include="StaticContent\Scripts-Internal\LinkVisualization.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\MapWinPercentageVisualization.js" />
+    <Content Include="StaticContent\Scripts-Internal\MapWinPercentageVisualization.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\MediaQueries.js" />
+    <Content Include="StaticContent\Scripts-Internal\MediaQueries.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\MulticastEvent.js" />
+    <Content Include="StaticContent\Scripts-Internal\MulticastEvent.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\Sparkline.js" />
+    <Content Include="StaticContent\Scripts-Internal\Sparkline.min.js" />
+    <Content Include="StaticContent\Scripts-Internal\StreakVisualization.js" />
+    <Content Include="StaticContent\Scripts-Internal\StreakVisualization.min.js" />
+    <Content Include="StaticContent\Styles\jquery-ui-timepicker-addon.css" />
+    <Content Include="StaticContent\Styles\MatchMaker.css" />
+    <Content Include="StaticContent\Styles\Responsive.css" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="StaticContent\Styles\ui-lightness\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Authentication\PasswordValidator.cs" />
+    <Compile Include="Authentication\UserIdentity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authentication\UserMapper.cs" />
+    <Compile Include="Common\BaseModule.cs" />
+    <Compile Include="Common\Selectable.cs" />
+    <Compile Include="Common\ValidationReslult.cs" />
+    <Compile Include="Bootstrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\HtmlHelper.cs" />
+    <Compile Include="Common\ExtensionMethods.cs" />
+    <Compile Include="Authentication\AuthenticationModule.cs" />
+    <Compile Include="Common\StringResponse.cs" />
+    <Compile Include="Common\UserMessages.cs" />
+    <Compile Include="DataVisualization\DataVisualizationModule.cs" />
+    <Compile Include="DataVisualization\ViewDataVisualizationViewModel.cs" />
+    <Compile Include="Default\DefaultModule.cs" />
+    <Compile Include="Authentication\LoginRequest.cs" />
+    <Compile Include="Default\SelectGameViewModel.cs" />
+    <Compile Include="Matchup\Algorithm.cs" />
+    <Compile Include="Matchup\MatchupModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchup\MatchupResultViewModel.cs" />
+    <Compile Include="Matchup\FindTeamsModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchup\GetProposedMatchupsRequest.cs" />
+    <Compile Include="Matchup\GetProposedMatchupsResponse.cs" />
+    <Compile Include="Common\GameModule.cs" />
+    <Compile Include="Matchup\SaveMatchupResultViewModel.cs" />
+    <Compile Include="Matchup\SelectPlayersRequest.cs" />
+    <Compile Include="Matchup\SelectPlayersViewModel.cs" />
+    <Compile Include="Matchup\SetMatchupProposerRequest.cs" />
+    <Compile Include="Matchup\SetMatchupProposerViewModel.cs" />
+    <Compile Include="PlayerRatings\PlayerAverageRating.cs" />
+    <Compile Include="PlayerRatings\PlayerRatingsModule.cs" />
+    <Compile Include="PlayerRatings\RatePlayersViewModel.cs" />
+    <Compile Include="PlayerRatings\RatePlayerViewModel.cs" />
+    <Compile Include="PlayerRatings\ViewPlayerRatingsViewModel.cs" />
+    <Compile Include="Registration\EmailAddressFormatValidator.cs" />
+    <Compile Include="Registration\IEmailAddressFormatValidator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registration\RegistrationModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registration\RegistrationRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Route.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionHelper.cs" />
+    <Compile Include="Shared\LayoutViewBagInitializer.cs" />
+    <Compile Include="UserProfile\ChangePasswordRequest.cs" />
+    <Compile Include="ViewBagKeys.cs" />
+    <Compile Include="UserProfile\SelectGamesRequest.cs" />
+    <Compile Include="UserProfile\SelectGamesViewModel.cs" />
+    <Compile Include="UserProfile\UserProfileModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Authentication\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shared\Layout.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserProfile\SelectGames.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Matchup\GetProposedMatchups.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Matchup\SaveMatchupResult.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Matchup\ViewResults.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PlayerRatings\RatePlayers.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="PlayerRatings\ViewPlayerRatings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default\SelectGame.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserProfile\UserProfile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserProfile\ChangePassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MatchMaker.MongoDB\MatchMaker.MongoDB.csproj">
+      <Project>{4dc54c75-89a4-4569-a7f9-3f132de5b120}</Project>
+      <Name>MatchMaker.MongoDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MatchMaker.Testing\MatchMaker.Testing.csproj">
+      <Project>{01fac218-60cb-4d00-a3f5-23665fb2606b}</Project>
+      <Name>MatchMaker.Testing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MatchMaker\MatchMaker.csproj">
+      <Project>{162b0012-aa21-44e7-abc0-37973f291c6a}</Project>
+      <Name>MatchMaker</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Matchup\SelectPlayers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Matchup\SetMatchupProposer.cshtml" />
+    <Content Include="DataVisualization\ViewDataVisualization.cshtml" />
+    <None Include="Properties\PublishProfiles\Default.pubxml" />
+    <None Include="Properties\PublishProfiles\Ringtail-PC.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11049</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.12.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.12.1\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

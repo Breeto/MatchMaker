@@ -1,0 +1,416 @@
+﻿/* Default HTML Element Styles */
+
+body
+{
+	background-color: #f5f5f5;
+	font-family: Tahoma, Helvetica;
+	font-size: 14px;
+}
+
+label
+{
+	cursor: pointer;
+}
+
+th
+{
+	font-weight: normal;
+	padding: 5px;
+	text-decoration: underline;
+	color: gray;
+}
+
+hr
+{
+	background-color: #ccc;
+	border: 0;
+	color: #ccc;
+	height: 1px;
+	width: 95%;
+}
+
+ul
+{
+	margin-left: 0px;
+	margin-top: 0px;
+	padding-left: 1.5em;
+	padding-top: 0px;
+}
+
+input
+{
+	font-family: Tahoma, Helvetica;
+	font-size: 14px;
+}
+
+textarea
+{
+	font-family: Tahoma, Helvetica;
+	font-size: 14px;
+}
+
+td 
+{
+	padding: 5px;
+}
+
+.CheckBoxWrapper
+{
+	margin-bottom: 10px;
+}
+
+
+/* Typeface Modifiers/Descriptors */
+
+.FontSize-Small
+{
+	font-size: .8em;
+}
+
+.FontSize-Large
+{
+	font-size: 1.4em;
+}
+
+.FontSize-ExtraLarge
+{
+	font-size: 1.8em;
+}
+
+.FontWeight-Bold
+{
+	font-weight: bold;
+}
+
+.Color-Muted 
+{
+	color: #555;
+}
+
+.Color-Accent 
+{
+	color: red;
+}
+
+
+/* Named Styles */
+
+.AppTitle 
+{
+	font-size: 3em;
+	color: #777;
+}
+
+.GameTitle 
+{
+	font-size: 3em;
+	font-weight: normal;
+	color: #000;
+}
+
+.NavBar 
+{
+	border-top: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+
+.NavBar a
+{
+	color: #555;
+	text-transform: none;
+	text-decoration: none;
+}
+
+.NavBar a:not(:first-child):before 
+{
+	content: "\2022";
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #ccc;
+}
+
+.NavBar a:hover 
+{
+	color: blue;
+}
+
+.NavBarSeparator::before
+{
+	content: "\2022";
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.Heading
+{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.SubHeading 
+{
+	font-size: 1.25em;
+}
+
+.Subtle
+{
+	color: Gray;
+	font-size: 1.0em;
+	font-style: normal;
+}
+
+
+
+/* Shared */
+
+.TeamContainer {
+	float: left;
+	min-width: 150px;
+}
+
+.TeamHeader {
+	background-color: #ccc; 
+	padding: 2px;
+	position: relative;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 3px;
+}
+
+.TeamName {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: white;
+}
+
+.PlayerName {
+	font-size: 1.25em;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align: center;
+}
+
+.Number {
+	font-family: Impact, Arial Bold;
+	font-weight: bold;
+	color: white;
+	font-size: 25px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.ActionBorder {
+	cursor: pointer;
+	margin: 10px;
+}
+
+.ActionIcon {
+	opacity: 1;
+	vertical-align: middle;
+}
+
+.ActionText {
+	opacity: 1;
+}
+
+th 
+{
+    cursor: pointer;
+}
+.lossSlice {
+    stroke: #fff;
+    stroke-width: 3px;
+}
+.winSlice {
+    stroke: #fff;
+    stroke-width: 3px;
+}
+.statistics {
+    width: 46%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-bottom: 2%;
+}
+
+.statisticsHeader {
+	margin-left: 0;
+	margin-top: 0;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+    
+#playerCheckboxes {
+	vertical-align: top; 
+	padding-right: 40px; 
+	border-right: 1px solid gray; 
+	float:left;
+}
+
+#matchupResults {
+	vertical-align: top; 
+	padding-left: 40px; 
+	min-width: 500px;
+	float:left; 
+	margin-top:20px;
+}
+
+#navBar1 {
+	float: left;
+
+}
+
+#navBar2 {
+	float: left;
+}
+
+#navBar1 a
+{
+	color: #555;
+	text-transform: none;
+	text-decoration: none;
+}
+
+#navBar1 a:not(:first-child):before 
+{
+	content: "\2022";
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #ccc;
+}
+
+#navBar2 a
+{
+	color: #555;
+	text-transform: none;
+	text-decoration: none;
+}
+
+#navBar2 a:before 
+{
+	content: "\2022";
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #ccc;
+}
+
+#mapImage {
+	margin-right: 30px; 
+	float:left;
+	max-width: 100px;
+}
+
+#team1Part {
+	float: left;
+}
+
+#team2Part {
+	float: left;
+}
+
+#vs {
+	position: absolute;
+	height: 20px;
+	float:left; 
+	text-align: center;
+	width: 60px;
+	top: 50%;
+	margin-top: -10px;
+
+}
+
+#outer-vs {
+	float:left; 
+	position:relative; 
+	height: 100%; 
+	width: 60px;
+
+}
+
+#comments {
+	margin-left: 30px; 
+	float:left;
+	width: 300px;
+}
+
+#team2Number {
+	float: right; 
+	position: absolute;  
+	left: 0px; 
+	bottom: 0%;
+}
+
+#team2Name {
+		float: right; 
+}
+
+.resultTable {
+	margin-top: 20px;
+	margin-bottom: 20px; 
+	margin-left: auto; 
+	margin-right: auto; 
+	border-bottom: solid 1px #ddd;
+}
+
+#imageColumn {
+	
+}
+
+#scoreColumn {
+	
+}
+
+#teamInformationContainer {
+	float: left;
+	height: 150px;
+}
+
+.nameColumn {
+	vertical-align: middle; 
+	width: 23%;
+
+}
+
+.ratingsColumn {
+	vertical-align: middle;
+	padding-left: 2%;
+	width: 48%;
+
+}
+
+.winLossColumn {
+	padding-left: 2%;
+	width: 23%;
+	vertical-align: middle;
+}
+
+#playerRating {
+	font-weight: bold;
+	float: left;
+
+}
+
+.Sparkline {
+	width: 100%;
+	max-width: 300px;
+}
+
+.SparklineContainer {
+	padding-left: 10%;
+	width: 80%;
+	float: left;
+}
+
+
+
+#winPercentage {
+	float: left;
+}
+
+#winCount {
+	float: left;
+}
+

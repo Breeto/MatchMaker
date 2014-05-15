@@ -1,0 +1,197 @@
+﻿@media screen and (max-width: 650px) {
+	.statistics {
+		width: 90%;
+		padding-left: 5%;
+		padding-right: 5%;
+		padding-bottom: 5%;
+	}
+
+}
+
+@media screen and (max-width: 800px) {
+
+	#playerCheckboxes {
+		width: 90%;
+
+		vertical-align: top; 
+		padding-right: 0; 
+		border-right: 0 solid gray; 
+		border-bottom: 1px solid gray; 
+	}
+
+	#matchupResults {
+		width: 90%;
+		padding: 2%;
+		vertical-align: top; 
+		min-width: 500px;
+		margin-top:20px;
+	}
+
+	#playerCheckboxes1 {
+
+		width: 45%;
+		padding: 2%;
+		float: left;
+	}
+
+	#playerCheckboxes2 {
+		width: 45%;
+		padding: 2%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 625px) {
+	#navBar1 {
+		width: 100%;
+	}
+
+	#navBar2 {
+		width: 100%;
+	}
+
+	#navBar2 a:first-child:before 
+	{
+		content: "";
+		margin-left: 0;
+		margin-right: 0;
+		color: #ccc;
+	}
+
+}
+
+@media screen and (max-width: 875px) {
+	#mapImage {
+		margin-right: 2%;
+		float:left;
+		max-width: 100%;
+	}
+
+	#team1Part {
+		float: none;
+		height: 45%;
+	}
+
+	#team2Part {
+		float: none;
+		height: 45%;
+	}
+
+	#vs {
+		position: static;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		height: 100%;
+		float:none;
+		text-align: center;
+		width: 100%;
+	}
+
+	#outer-vs {
+		float:none;
+		position: static;
+		height: 10%;
+		width: 100%;
+
+
+	}
+
+
+	#comments {
+		width: 100%;
+		margin-left: 10px; 
+	}
+
+	#team2Number {
+		float: right; 
+		position: absolute;  
+		right: 0px;
+		left: auto;
+		bottom: 0%;
+	}
+
+	#team2Name {
+		float: left; 
+	}
+
+	.resultTable {
+		width: 96%;
+		padding-left: 2%;
+		padding-right: 2%;
+		padding-bottom: 2%;
+		padding-top: 0;
+		margin: 0;
+	}
+
+	.TeamHeader {
+		width: 100%;
+	}
+
+
+	#imageColumn {
+		width: 50%;
+	}
+
+	#scoreColumn {
+		width: 50%;
+	}
+
+	#teamInformationContainer {
+		width: 100%;
+		height: auto;
+	}
+
+
+}
+
+@media screen and (max-width: 850px) {
+	#nameColumn {
+		width: 23%;
+	}
+
+	#ratingsColumn {
+		padding-left: 3%;
+		width: 48%;
+	}
+
+	#playerRating {
+		width: 10%;
+	}
+
+	.SparklineContainer {
+		width: 80%;
+	}
+
+	#winLossColumn {
+		padding-left: 3%;
+		width: 23%;
+	}
+
+	#winPercentage {
+		float: none;
+	}
+
+	#winCount {
+		float: none;
+	}
+
+
+
+}
+
+@media screen and (max-width: 450px) {
+
+	.SparklineContainer {
+		width: 0;
+	}
+
+	#ratingsColumn {
+		padding-left: 0;
+	}
+
+	#winLossColumn {
+		padding-left: 0;
+	}
+
+
+}

@@ -1,0 +1,19 @@
+﻿@using MatchMaker.Web
+@using MatchMaker.Web.Common
+
+
+@{
+	Layout = "Shared/Layout.cshtml";
+}
+
+
+<p class="Heading">Account Settings for @this.ViewBag[ViewBagKeys.CurrentUser].Value.Name</p>
+
+
+<ul>
+	<li><a href="@Route.SelectGames">Select which games you currently play</a></li>
+	<li><a href="@Route.ChangePassword">Change Password</a></li>
+	<li><a href="@Route.Logout">Logout</a></li>
+</ul>
+
+

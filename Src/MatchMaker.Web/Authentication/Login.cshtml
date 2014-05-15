@@ -1,0 +1,23 @@
+﻿@using MatchMaker.Web
+
+
+@{ Layout = "Shared/Layout.cshtml"; }
+
+
+<form method="POST">
+	<table>
+		<tr>
+			<td>Player Name:</td>
+			<td><input name="username" type="text" size="20" value="@Model.UserName" autofocus/></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input name="password" type="password" size="20"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: center;"><input type="submit" value="Login"/></td>
+		</tr>
+	</table>
+</form>
+
+

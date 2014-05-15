@@ -1,0 +1,19 @@
+<mockup version="1.0" skin="sketch" measuredW="170" measuredH="48" mockupW="110" mockupH="28">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="60" y="20" w="110" h="28" measuredW="110" measuredH="28" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>PageLabel</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="-1" h="-1" measuredW="110" measuredH="28" zOrder="0" locked="false" isInGroup="0">
+          <controlProperties>
+            <align>center</align>
+            <bold>true</bold>
+            <size>20</size>
+            <text>Page%20Name</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

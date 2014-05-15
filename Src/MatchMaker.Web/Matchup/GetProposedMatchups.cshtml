@@ -1,0 +1,110 @@
+﻿@using MatchMaker.Web
+@using MatchMaker.Web.Common
+
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<MatchMaker.Web.Matchup.GetProposedMatchupsResponse>
+
+
+@if ( !string.IsNullOrWhiteSpace( Model.ErrorMessage ) )
+{
+	<span class="Subtle">@Model.ErrorMessage</span>
+}
+else
+{
+	var matchupNumber = 0;
+	foreach(var matchup in Model.ProposedMatchups)
+	{
+		matchupNumber++;
+		
+		<table onmouseover="showMatchupOptions(@matchupNumber);" onmouseout="hideMatchupOptions(@matchupNumber);" style="margin-bottom: 30px;">
+			<tr>
+			
+				<td style="vertical-align: top;">
+					<div class="TeamContainer">
+						<div class="TeamHeader">
+							<div class="TeamName" style="float: left;">Team 1</div>
+							<div class="Number" style="float: right; position: absolute; right: 0px; bottom: 0%;">@matchup.Team1PredictedWinPercentage%</div>
+							<div style="clear: both;"></div>
+						</div>
+						@foreach(var player in matchup.Team1.Members)
+						{
+							<div class="PlayerName">@player.Name</div>
+						}
+					</div>
+				</td>
+			
+				<td style="vertical-align: middle;" class="Subtle">-vs-</td>
+			
+				<td style="vertical-align: top;">
+					<div class="TeamContainer">
+						<div class="TeamHeader">
+							<div class="Number" style="float: left; position: absolute; left: 0px; bottom: 0%;">@matchup.Team2PredictedWinPercentage%</div>
+							<div class="TeamName" style="float: right;">Team 2</div>
+							<div style="clear: both;"></div>
+						</div>
+						@foreach(var player in matchup.Team2.Members)
+						{
+							<div class="PlayerName">@player.Name</div>
+						}
+					</div>
+				</td>
+			
+				<td id="@("matchup" + matchupNumber)" style="visibility: hidden;">
+					<div class="ActionBorder" onclick="copyToClipboard('@matchup.ClipboardString', @matchupNumber);">
+						<img src="/StaticContent/Images/Clipboard.png" class="ActionIcon" />
+						<span class="ActionText">Copy to Clipboard</span>
+					</div>
+					<form action="@Route.PresentMatchupForSaving" method="POST" id="@("saveresult" + matchupNumber)">
+						<div class="ActionBorder" onclick="$('#@("saveresult" + matchupNumber)').submit();">
+							<input type="hidden" name="matchup" value="@matchup.ToJson()"/>
+							<img src="/StaticContent/Images/TrophyWithStar.png" class="ActionIcon" />
+							<span class="ActionText">Record Win/Loss</span>
+						</div>
+					</form>
+				</td>
+                
+			</tr>
+
+			<tr>
+				<td id="@("matchupClipboard" + matchupNumber)" colspan="4" style="visibility: hidden;">
+					<span>@matchup.ClipboardString</span>
+				</td>
+			</tr>
+		</table>
+	 }
+}
+
+
+<script>
+	// TODO: Detect Mac or Windows for instruction text
+    function copyToClipboard(text, matchupId)
+    {
+        //document.getElementById(getMatchupClipboardElementId(matchupId)).select();
+
+
+        //$(getMatchupOptionsElementId(matchupId)).replaceWith(text);
+		window.prompt( "1. Press CTRL+C \n2. Press ESC, ENTER, or click OK \n", text );
+	}
+
+	function getMatchupOptionsElementId(matchupId)
+	{
+		return "#matchup" + matchupId;
+	}
+
+	function getMatchupClipboardElementId(matchupId) {
+	    return "#matchupClipboard" + matchupId;
+	}
+
+	function showMatchupOptions(matchupId)
+	{
+	    $(getMatchupOptionsElementId(matchupId)).css("visibility", "visible");
+		$(getMatchupClipboardElementId(matchupId)).css("visibility", "visible");
+    }
+
+	function hideMatchupOptions(matchupId)
+	{
+		$(getMatchupOptionsElementId(matchupId)).css("visibility", "hidden");
+		$(getMatchupClipboardElementId(matchupId)).css("visibility", "hidden");
+    }
+</script>
+
