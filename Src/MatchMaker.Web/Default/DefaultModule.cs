@@ -22,7 +22,7 @@ namespace MatchMaker.Web.Default
 			Get[Route.SelectGame] = o =>
 			{
 				var model = new SelectGameViewModel(database.GetGames());
-
+				Console.WriteLine(model.ToString());
 				return View[Route.SelectGame, model];
 			};
 

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using Nancy;
 using Nancy.Session;
-using RingtailDesign.Common.Collections;
 
 
 namespace MatchMaker.Web.Common
@@ -11,7 +11,7 @@ namespace MatchMaker.Web.Common
 	public static class UserMessages
 	{
 		
-		private static readonly Map<string, List<string>> userMessagesMap = new Map<string, List<string>>( s => new List<string>() ); 
+		private static readonly ConcurrentDictionary<string, List<string>> userMessagesMap = new ConcurrentDictionary<string, List<string>>(); 
 
 
 		/// <summary>
@@ -22,8 +22,14 @@ namespace MatchMaker.Web.Common
 		{
 			var session = context.Request.Session;
 			var sessionId = GetSessionId( session );
-
-			userMessagesMap[sessionId].Add( message );
+			
+			List<string> messages;
+			if(!userMessagesMap.TryGetValue(sessionId, out messages))
+			{
+				messages = new List<string>();
+				userMessagesMap[sessionId] = messages;
+			}
+			messages.Add( message );
 		}
 
 
@@ -57,7 +63,12 @@ namespace MatchMaker.Web.Common
 			var session = context.Request.Session;
 			var sessionId = GetSessionId( session );
 
-			var messages = userMessagesMap[sessionId];
+			List<string> messages;
+			if(!userMessagesMap.TryGetValue(sessionId, out messages))
+			{
+				messages = new List<string>();
+				userMessagesMap[sessionId] = messages;
+			}
 			var messageArray = messages.ToArray();
 			messages.Clear();
 

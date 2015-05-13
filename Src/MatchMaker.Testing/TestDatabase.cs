@@ -24,6 +24,7 @@ namespace MatchMaker.Testing
 
 		public TestDatabase( IPasswordEncryptor passwordEncryptor )
 		{
+			System.Console.WriteLine("Hi from TestDatabase");
 			new TestDatabasePopulator(this, passwordEncryptor).Populate();
 		}
 

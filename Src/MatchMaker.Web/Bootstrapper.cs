@@ -7,9 +7,10 @@ using MatchMaker.Testing;
 using MatchMaker.Web.Shared;
 using Nancy;
 using Nancy.Authentication.Forms;
+using Nancy.Authentication.Token;
 using Nancy.Conventions;
 using Nancy.Diagnostics;
-using TinyIoC;
+using Nancy.TinyIoc;
 
 
 namespace MatchMaker.Web
@@ -34,6 +35,7 @@ namespace MatchMaker.Web
 			InitializeMatchupProposers( container );
 
 			Nancy.Session.CookieBasedSessions.Enable( pipelines );
+			System.Console.WriteLine("Hi from Bootstrapper: ApplicationStartup");
 		}
 
 
@@ -45,34 +47,39 @@ namespace MatchMaker.Web
 			var limitedLinkMatchupProposer = new LimitedLinkMatchupProposer( container.Resolve<IDatabase>(), container.Resolve<Settings>() );
 			var ratingsMatchupProposer = new RatingsMatchupProposer( container.Resolve<IDatabase>(), container.Resolve<Settings>() );
 			var winPercentageMatchupProposer = new WinPercentageMatchupProposer( container.Resolve<IDatabase>() );
-			var comboProposer = new ComboMatchupProposer( new List<IMatchupProposer>
-			{
-				limitedLinkMatchupProposer,
-				ratingsMatchupProposer
-			} );
+// 			var comboProposer = new ComboMatchupProposer( new List<IMatchupProposer>
+// 			{
+// 				limitedLinkMatchupProposer,
+// 				ratingsMatchupProposer
+// 			} );
 			var tieredMatchupProposer = new TieredMatchupProposer( container.Resolve<IDatabase>(), container.Resolve<Settings>() );
 
-			container.Register( typeof ( IMatchupProposer ), comboProposer, comboProposer.GetType().Name );
+// 			container.Register( typeof ( IMatchupProposer ), comboProposer, comboProposer.GetType().Name );
 			container.Register( typeof ( IMatchupProposer ), limitedLinkMatchupProposer, limitedLinkMatchupProposer.GetType().Name );
 			container.Register( typeof ( IMatchupProposer ), ratingsMatchupProposer, ratingsMatchupProposer.GetType().Name );
 			container.Register( typeof ( IMatchupProposer ), tieredMatchupProposer, tieredMatchupProposer.GetType().Name );
 			container.Register( typeof ( IMatchupProposer ), winPercentageMatchupProposer, winPercentageMatchupProposer.GetType().Name );
 
 			App.MatchupProposer = ratingsMatchupProposer;
+			System.Console.WriteLine("Hi from InitializeMatchupProposers");
 		}
 
 
 		protected override void RequestStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
 		{
+			System.Console.WriteLine("Hi from Bootstrapper: RequestStartup 1");
+			
 			base.RequestStartup(container, pipelines, context);
 
+			System.Console.WriteLine("Hi from Bootstrapper: RequestStartup 2");
 			var formsAuthenticationConfiguration = new FormsAuthenticationConfiguration
 			{
 				RedirectUrl = Route.Login,
 				UserMapper = container.Resolve<IUserMapper>(),
 			};
 			FormsAuthentication.Enable( pipelines, formsAuthenticationConfiguration );
-
+			System.Console.WriteLine("Hi from Bootstrapper: RequestStartup 3");
+			
 			LayoutViewBagInitializer.Enable( pipelines, container.Resolve<IDatabase>() );
 		}
 
